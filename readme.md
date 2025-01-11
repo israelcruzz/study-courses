@@ -13,6 +13,4 @@
 
 ## Summary:
 
----
-
 - [JStack](https://github.com/israelcruzz/study-courses/tree/main/jstack)
