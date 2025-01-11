@@ -40,8 +40,7 @@ const server = createServer((request, response) => {
         }
     } else {
         // @ts-ignore
-        response.send(400, JSON.stringify({ message: "Internal Server Error" }))
-        console.log("Não Existe")
+        response.send(400, { message: "Internal Server Error" })
     }
 })
 
