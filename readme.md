@@ -7,7 +7,7 @@
 
 ---
 
-## Descrição
+## Description
 
 <p>Here are all the contents I've been learning in various courses</p>
 
