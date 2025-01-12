@@ -1,4 +1,4 @@
-import { isDevEnvironment } from "@/Config/isDevEnvironment";
+import { isDevEnvironment } from "@/Config/IsDevEnvironment";
 import Server from "@/Core/Server/index";
 
 export class BootstrapApplication {
