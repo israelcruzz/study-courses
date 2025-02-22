@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  api:
+    build: 
+      context: ./api
+      dockerfile: Dockerfile.prod
+    image: israelcruz/api:prod
+    container_name: challengeapi
+    restart: always
+    ports:
+      - "4000:4000"
+    networks:
+      - challengenet
+    depends_on:
+      - db
+    volumes:
+      - api_data:/usr/src/app/data
+
+  db:
+    image: postgres
+    container_name: pg_challenge
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=challenge
+    ports:
+      - "5432:5432"
+    networks:
+      - challengenet
+    volumes:
+      - ./database:/var/lib/postgresql/data
+
+  nginx:
+    build:
+      context: ./ng
+      dockerfile: Dockerfile.prod
+    image: israelcruz/nginx:prod
+    container_name: challengeng
+    ports:
+      - "8080:80"
+    networks:
+      - challengenet
+
+volumes:
+  api_data:
+    driver: local
+
+networks:
+  challengenet:
+    driver: bridge
